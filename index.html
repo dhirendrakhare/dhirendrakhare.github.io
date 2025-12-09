@@ -1,164 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dr. Dhirendra Khare | Official Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f6f8fb;
-      color: #2c3e50;
-      line-height: 1.6;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Dhirendra Khare | Official Website</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Roboto',sans-serif;background:#f8f9fc;color:#333;scroll-behavior:smooth;}
 
-    header {
-      background: linear-gradient(135deg, #1f5ca8, #3a7bd5);
-      color: #ffffff;
-      padding: 60px 20px;
-      text-align: center;
-    }
+/* Navigation */
+nav{display:flex;justify-content:center;gap:30px;background:#fff;padding:15px 0;box-shadow:0 4px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;}
+nav a{font-weight:500;position:relative;padding:5px 0;transition:0.3s;color:#333;text-decoration:none;}
+nav a::after{content:'';position:absolute;left:0;bottom:0;width:0%;height:2px;background:#4b6cb7;transition:0.3s;}
+nav a:hover::after, nav a.active::after{width:100%;}
 
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
+/* Hero Banner */
+.hero{position:relative;height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;background:linear-gradient(135deg,#4b6cb7,#182848);}
+.hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);background-size:50px 50px;animation:moveShapes 30s linear infinite;z-index:0;}
+@keyframes moveShapes{0%{background-position:0 0;}100%{background-position:200px 200px;}}
+.hero .hero-content{position:relative;z-index:2;padding:20px;}
+.hero h1{font-size:4em;margin-bottom:15px;text-shadow:0 5px 15px rgba(0,0,0,0.5);}
+.hero p{font-size:1.3em;opacity:0.9;text-shadow:0 3px 10px rgba(0,0,0,0.5);}
+.hero img{width:180px;height:180px;border-radius:50%;border:4px solid #fff;margin-top:20px;box-shadow:0 5px 25px rgba(0,0,0,0.3);object-fit:cover;transition:0.5s;}
+.hero img:hover{transform:scale(1.05);box-shadow:0 10px 40px rgba(255,255,255,0.5);}
+.scroll-down{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:2em;opacity:0.8;animation:bounce 2s infinite;}
+@keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0);}40%{transform:translateX(-50%) translateY(10px);}60%{transform:translateX(-50%) translateY(5px);}}
 
-    header p {
-      margin-top: 10px;
-      font-size: 18px;
-      opacity: 0.9;
-    }
+/* Container */
+.container{max-width:1200px;margin:auto;padding:60px 20px;}
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-      background: #ffffff;
-    }
+/* Sections */
+section{margin-bottom:90px;opacity:0;transform:translateY(30px);transition:all 0.8s ease;}
+section.show{opacity:1;transform:translateY(0);}
+section h2{font-size:2.4em;margin-bottom:25px;border-left:6px solid #4b6cb7;padding-left:15px;}
+section p{font-size:1.05em;line-height:1.8;text-align:justify;}
 
-    .section {
-      margin-bottom: 50px;
-    }
+/* Stats counters */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:25px;margin-top:30px;}
+.stat-box{background:#f1f5ff;padding:35px;text-align:center;border-radius:18px;font-weight:500;font-size:18px;transition:transform 0.3s,box-shadow 0.3s;}
+.stat-box:hover{transform:translateY(-8px);box-shadow:0 15px 30px rgba(0,0,0,0.15);}
+.counter{font-size:2em;color:#4b6cb7;font-weight:700;}
 
-    .section h2 {
-      border-left: 5px solid #1f5ca8;
-      padding-left: 12px;
-      margin-bottom: 20px;
-      font-size: 24px;
-    }
+/* Books Grid */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:20px;}
+.gallery-grid img{width:100%;height:260px;object-fit:cover;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);transition:transform 0.3s,box-shadow 0.3s;}
+.gallery-grid img:hover{transform:scale(1.08);box-shadow:0 12px 25px rgba(0,0,0,0.25);}
 
-    .about p {
-      font-size: 16px;
-      text-align: justify;
-    }
+/* Awards Carousel */
+.carousel-container{position:relative;}
+.carousel{display:flex;overflow-x:auto;gap:20px;padding:10px 0;scroll-behavior:smooth;}
+.carousel::-webkit-scrollbar{display:none;}
+.carousel-item{flex:0 0 auto;width:220px;background:#f1f5ff;border-radius:15px;text-align:center;transition:transform 0.3s,box-shadow 0.3s;padding:15px;}
+.carousel-item img{width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:10px;}
+.carousel-item:hover{transform:scale(1.05);box-shadow:0 15px 30px rgba(0,0,0,0.2);}
+.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:2em;color:#4b6cb7;background:#fff;border-radius:50%;padding:10px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.carousel-arrow.left{left:-10px;}
+.carousel-arrow.right{right:-10px;}
 
-    .career ul {
-      padding-left: 20px;
-    }
+/* Contact */
+.contact{background:#f1f5ff;padding:45px 30px;border-radius:15px;text-align:center;}
+.contact a{display:inline-block;padding:14px 30px;margin-top:20px;background:#4b6cb7;color:#fff;border-radius:12px;font-weight:500;font-size:1em;transition:0.3s;}
+.contact a:hover{background:#36529a;}
 
-    .career li {
-      margin-bottom: 10px;
-    }
+/* Footer */
+footer{text-align:center;padding:25px;background:#182848;color:#fff;font-size:0.9em;}
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .stat-box {
-      background: #f1f5f9;
-      padding: 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .books-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 15px;
-    }
-
-    .books-gallery img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      text-align: center;
-      background: #f1f1f1;
-      padding: 20px;
-      font-size: 14px;
-      color: #555;
-    }
-  </style>
+/* Birthday Popup */
+#birthday-popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:flex;justify-content:center;align-items:center;z-index:1000;opacity:0;pointer-events:none;transition:0.3s;}
+#birthday-popup.show{opacity:1;pointer-events:all;}
+.popup-content{background:#fff;padding:50px 40px;border-radius:25px;text-align:center;max-width:500px;box-shadow:0 15px 40px rgba(0,0,0,0.4);animation:popin 0.5s ease;}
+.popup-content h2{color:#4b6cb7;margin-bottom:20px;font-size:2em;}
+.popup-content p{font-size:1.15em;margin-bottom:25px;}
+.popup-content button{padding:14px 30px;border:none;background:#4b6cb7;color:#fff;border-radius:12px;cursor:pointer;font-weight:500;font-size:1em;transition:0.3s;}
+.popup-content button:hover{background:#36529a;}
+@keyframes popin{from{transform:scale(0.7);opacity:0;}to{transform:scale(1);opacity:1;}}
+</style>
 </head>
 <body>
 
-<header>
-  <h1>Dr. Dhirendra Khare</h1>
-  <p>Dean, Faculty | JNKVV, Jabalpur</p>
-</header>
+<!-- Birthday Popup -->
+<div id="birthday-popup">
+  <div class="popup-content">
+    <h2>🎉 Happy Birthday, Dr. Dhirendra Khare! 🎉</h2>
+    <p>Wishing you joy, health, and continued success in all your endeavors.</p>
+    <button onclick="document.getElementById('birthday-popup').classList.remove('show')">Close</button>
+  </div>
+</div>
+
+<!-- Hero Banner -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Dr. Dhirendra Khare</h1>
+    <p>Dean, Faculty | JNKVV, Jabalpur</p>
+    <img src="profile.jpg" alt="Dr. Dhirendra Khare">
+  </div>
+  <div class="scroll-down">&#x25BC;</div>
+</section>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="#about" class="active">About</a>
+  <a href="#career">Career</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#books">Books</a>
+  <a href="#awards">Awards</a>
+  <a href="#contact">Contact</a>
+</nav>
 
 <div class="container">
-
   <!-- About -->
-  <div class="section about">
+  <section id="about">
     <h2>About</h2>
-    <p>
-      Dr. Dhirendra Khare is a renowned academician and scientist in the field of Plant Breeding
-      and Seed Technology. With over three decades of experience in teaching, research, and
-      academic leadership, he has made significant contributions to crop improvement, seed
-      quality systems, and agricultural education in India.
-    </p>
-  </div>
+    <p>Dr. Dhirendra Khare is a distinguished academician and scientist in Plant Breeding and Seed Technology. With over three decades of teaching and research experience, he has significantly contributed to agricultural education, crop improvement, and national seed systems in India.</p>
+  </section>
 
   <!-- Career -->
-  <div class="section career">
-    <h2>Academic Journey</h2>
-    <ul>
-      <li>Assistant Professor – 1985</li>
-      <li>Senior Scientist – 1998</li>
-      <li>Principal Scientist – 2006</li>
-      <li>Dean, Faculty – 2015–Present</li>
-    </ul>
-  </div>
+  <section id="career">
+    <h2>Career & Journey</h2>
+    <p>He began as Assistant Professor in 1985, later serving as Senior Scientist, Principal Scientist, and Dean. He also served as Director of Instruction and Director of Research at JNKVV, leading academic and research initiatives.</p>
+  </section>
 
   <!-- Achievements -->
-  <div class="section achievements">
+  <section id="achievements">
     <h2>Achievements</h2>
     <div class="stats">
-      <div class="stat-box">100+ Research Papers</div>
-      <div class="stat-box">14 Books</div>
-      <div class="stat-box">12 Crop Varieties</div>
-      <div class="stat-box">30+ Years of Experience</div>
+      <div class="stat-box"><span class="counter" data-target="100">0</span>+ Research Papers</div>
+      <div class="stat-box"><span class="counter" data-target="14">0</span> Books</div>
+      <div class="stat-box"><span class="counter" data-target="12">0</span> Crop Varieties</div>
+      <div class="stat-box"><span class="counter" data-target="30">0</span>+ Years Experience</div>
     </div>
-  </div>
+  </section>
 
-  <!-- Books -->
-  <div class="section books">
+  <!-- Books Grid -->
+  <section id="books">
     <h2>Published Books</h2>
-    <div class="books-gallery">
+    <div class="gallery-grid">
       <img src="book1.jpg" alt="Book 1">
       <img src="book2.jpg" alt="Book 2">
       <img src="book3.jpg" alt="Book 3">
       <img src="book4.jpg" alt="Book 4">
     </div>
-  </div>
+  </section>
 
+  <!-- Awards Carousel -->
+  <section id="awards">
+    <h2>Awards & Conferences</h2>
+    <div class="carousel-container">
+      <div class="carousel" id="awardsCarousel">
+        <div class="carousel-item"><img src="award1.jpg" alt=""><p>Bharat Ratna Dr. C. Subramaniam Award</p></div>
+        <div class="carousel-item"><img src="award2.jpg" alt=""><p>Outstanding Team Research Award, ICAR</p></div>
+        <div class="carousel-item"><img src="conference1.jpg" alt=""><p>National Conference Participation</p></div>
+        <div class="carousel-item"><img src="conference2.jpg" alt=""><p>International Conference Visit, CIMMYT</p></div>
+      </div>
+      <div class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</div>
+      <div class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>For professional inquiries or collaborations, you may reach out via email:</p>
+      <a href="mailto:dhirendra.kh@example.com">dhirendra.kh@example.com</a>
+    </div>
+  </section>
 </div>
 
 <footer>
   <p>© 2025 Dr. Dhirendra Khare. All rights reserved.</p>
 </footer>
+
+<script>
+// Birthday popup
+window.addEventListener('load',()=>{document.getElementById('birthday-popup').classList.add('show');});
+
+// Section reveal
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('show');});},{threshold:0.1});
+sections.forEach(section=>observer.observe(section));
+
+// Menu active link
+const menuLinks=document.querySelectorAll('nav a');
+window.addEventListener('scroll',()=>{
+  let fromTop=window.scrollY+150;
+  menuLinks.forEach(link=>{
+    const section=document.querySelector(link.hash);
+    if(section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){
+      menuLinks.forEach(l=>l.classList.remove('active'));
+      link.classList.add('active');
+    }
+  });
+});
+
+// Animated counters
+const counters=document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+  const updateCount=()=>{
+    const target=+counter.getAttribute('data-target');
+    const count=+counter.innerText;
+    const increment=Math.ceil(target/200);
+    if(count<target){counter.innerText=count+increment;setTimeout(updateCount,20);}
+    else{counter.innerText=target;}
+  }
+  updateCount();
+});
+
+// Awards carousel
+function scrollCarousel(direction){
+  const carousel=document.getElementById('awardsCarousel');
+  carousel.scrollBy({left:direction*240,behavior:'smooth'});
+}
+</script>
 
 </body>
 </html>
