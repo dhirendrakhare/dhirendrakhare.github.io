@@ -3,215 +3,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. Dhirendra Khare | Official Website</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Dr. Dhirendra Khare</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Roboto',sans-serif;background:#f8f9fc;color:#333;scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f5f7fd;color:#333}
 
-/* Navigation */
-nav{display:flex;justify-content:center;gap:30px;background:#fff;padding:15px 0;box-shadow:0 4px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;}
-nav a{font-weight:500;position:relative;padding:5px 0;transition:0.3s;color:#333;text-decoration:none;}
-nav a::after{content:'';position:absolute;left:0;bottom:0;width:0%;height:2px;background:#4b6cb7;transition:0.3s;}
-nav a:hover::after, nav a.active::after{width:100%;}
+/* Banner */
+.hero{
+ height:50vh;
+ background:linear-gradient(135deg,#102c54,#1e56a0);
+ color:#fff;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding:20px;
+}
+.hero h1{font-size:36px;}
+.hero p{font-size:18px;opacity:.9;}
 
-/* Hero Banner */
-.hero{position:relative;height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;background:linear-gradient(135deg,#4b6cb7,#182848);}
-.hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);background-size:50px 50px;animation:moveShapes 30s linear infinite;z-index:0;}
-@keyframes moveShapes{0%{background-position:0 0;}100%{background-position:200px 200px;}}
-.hero .hero-content{position:relative;z-index:2;padding:20px;}
-.hero h1{font-size:4em;margin-bottom:15px;text-shadow:0 5px 15px rgba(0,0,0,0.5);}
-.hero p{font-size:1.3em;opacity:0.9;text-shadow:0 3px 10px rgba(0,0,0,0.5);}
-.hero img{width:180px;height:180px;border-radius:50%;border:4px solid #fff;margin-top:20px;box-shadow:0 5px 25px rgba(0,0,0,0.3);object-fit:cover;transition:0.5s;}
-.hero img:hover{transform:scale(1.05);box-shadow:0 10px 40px rgba(255,255,255,0.5);}
-.scroll-down{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:2em;opacity:0.8;animation:bounce 2s infinite;}
-@keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0);}40%{transform:translateX(-50%) translateY(10px);}60%{transform:translateX(-50%) translateY(5px);}}
+/* Menu */
+nav{
+ background:#fff;
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:20px;
+ padding:16px 10px;
+ box-shadow:0 10px 30px rgba(0,0,0,.05)
+}
+nav a{
+ text-decoration:none;
+ font-weight:500;
+ font-size:16px;
+ color:#333;
+ padding:8px 4px;
+ position:relative;
+ transition:.35s
+}
+nav a:hover{
+ color:#1e56a0;
+ text-shadow:0 0 12px rgba(30,86,160,.25);
+ transform:translateY(-2px)
+}
+nav a::after{
+ content:'';
+ position:absolute;
+ left:0;
+ bottom:-5px;
+ width:0;height:3px;
+ background:linear-gradient(90deg,#1e56a0,#6fa1ff);
+ transition:.35s;border-radius:10px
+}
+nav a:hover::after{width:100%}
 
 /* Container */
-.container{max-width:1200px;margin:auto;padding:60px 20px;}
+.container{max-width:1200px;margin:auto;padding:30px 20px;}
 
-/* Sections */
-section{margin-bottom:90px;opacity:0;transform:translateY(30px);transition:all 0.8s ease;}
-section.show{opacity:1;transform:translateY(0);}
-section h2{font-size:2.4em;margin-bottom:25px;border-left:6px solid #4b6cb7;padding-left:15px;}
-section p{font-size:1.05em;line-height:1.8;text-align:justify;}
+/* New Book Section */
+.new-book{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:30px;
+ background:#eef3ff;
+ padding:35px;
+ border-radius:20px;
+ box-shadow:0 15px 40px rgba(0,0,0,.06)
+}
+.new-book img{
+ width:100%;max-width:260px;height:360px;
+ object-fit:cover;border-radius:20px;background:#fff;padding:10px
+}
+.new-book video{
+ width:100%;border-radius:20px;
+ box-shadow:0 10px 30px rgba(0,0,0,.15)
+}
+.badge{
+ background:#ffcc00;color:#7a5200;
+ padding:6px 18px;border-radius:40px;
+ font-weight:600;display:inline-block
+}
 
-/* Stats counters */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:25px;margin-top:30px;}
-.stat-box{background:#f1f5ff;padding:35px;text-align:center;border-radius:18px;font-weight:500;font-size:18px;transition:transform 0.3s,box-shadow 0.3s;}
-.stat-box:hover{transform:translateY(-8px);box-shadow:0 15px 30px rgba(0,0,0,0.15);}
-.counter{font-size:2em;color:#4b6cb7;font-weight:700;}
+/* Slider */
+.slider{position:relative;overflow:hidden;margin-top:60px;}
+.slider-track{
+ display:flex;gap:20px;width:max-content;
+ transition:transform 0.5s ease;
+}
+.slider-item{
+ width:230px;
+ background:#fff;
+ padding:15px;border-radius:18px;text-align:center;
+ box-shadow:0 10px 28px rgba(0,0,0,.08);
+ cursor:pointer;transition:.35s;
+}
+.slider-item:hover{transform:translateY(-10px);box-shadow:0 20px 45px rgba(0,0,0,.15);}
+.slider-item img{width:100%;height:240px;object-fit:cover;border-radius:15px;}
+.arrow{
+ position:absolute;top:45%;
+ transform:translateY(-50%);
+ background:#fff;color:#333;
+ font-size:24px;font-weight:bold;
+ width:45px;height:45px;
+ display:flex;align-items:center;justify-content:center;
+ border-radius:50%;cursor:pointer;
+ box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:2
+}
+.arrow.left{left:10px}
+.arrow.right{right:10px}
 
-/* Books Grid */
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:20px;}
-.gallery-grid img{width:100%;height:260px;object-fit:cover;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);transition:transform 0.3s,box-shadow 0.3s;}
-.gallery-grid img:hover{transform:scale(1.08);box-shadow:0 12px 25px rgba(0,0,0,0.25);}
+/* Gallery */
+.gallery-scroll{
+ display:flex;gap:15px;overflow-x:auto;
+ scroll-behavior:smooth;margin-top:60px
+}
+.gallery-scroll::-webkit-scrollbar{height:8px}
+.gallery-scroll::-webkit-scrollbar-thumb{
+ background:#1e56a0;border-radius:20px
+}
+.gallery-scroll img{
+ height:200px;width:300px;object-fit:cover;
+ border-radius:15px;cursor:pointer;transition:.3s
+}
+.gallery-scroll img:hover{transform:scale(1.05)}
 
-/* Awards Carousel */
-.carousel-container{position:relative;}
-.carousel{display:flex;overflow-x:auto;gap:20px;padding:10px 0;scroll-behavior:smooth;}
-.carousel::-webkit-scrollbar{display:none;}
-.carousel-item{flex:0 0 auto;width:220px;background:#f1f5ff;border-radius:15px;text-align:center;transition:transform 0.3s,box-shadow 0.3s;padding:15px;}
-.carousel-item img{width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:10px;}
-.carousel-item:hover{transform:scale(1.05);box-shadow:0 15px 30px rgba(0,0,0,0.2);}
-.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:2em;color:#4b6cb7;background:#fff;border-radius:50%;padding:10px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
-.carousel-arrow.left{left:-10px;}
-.carousel-arrow.right{right:-10px;}
-
-/* Contact */
-.contact{background:#f1f5ff;padding:45px 30px;border-radius:15px;text-align:center;}
-.contact a{display:inline-block;padding:14px 30px;margin-top:20px;background:#4b6cb7;color:#fff;border-radius:12px;font-weight:500;font-size:1em;transition:0.3s;}
-.contact a:hover{background:#36529a;}
-
-/* Footer */
-footer{text-align:center;padding:25px;background:#182848;color:#fff;font-size:0.9em;}
+/* Lightbox */
+.lightbox{
+ position:fixed;top:0;left:0;width:100%;height:100%;
+ background:rgba(0,0,0,.85);
+ display:none;align-items:center;justify-content:center;z-index:999
+}
+.lightbox.show{display:flex}
+.lightbox img{
+ max-width:90%;max-height:90%;
+ border-radius:20px;box-shadow:0 40px 80px rgba(0,0,0,.5)
+}
 
 /* Birthday Popup */
-#birthday-popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:flex;justify-content:center;align-items:center;z-index:1000;opacity:0;pointer-events:none;transition:0.3s;}
-#birthday-popup.show{opacity:1;pointer-events:all;}
-.popup-content{background:#fff;padding:50px 40px;border-radius:25px;text-align:center;max-width:500px;box-shadow:0 15px 40px rgba(0,0,0,0.4);animation:popin 0.5s ease;}
-.popup-content h2{color:#4b6cb7;margin-bottom:20px;font-size:2em;}
-.popup-content p{font-size:1.15em;margin-bottom:25px;}
-.popup-content button{padding:14px 30px;border:none;background:#4b6cb7;color:#fff;border-radius:12px;cursor:pointer;font-weight:500;font-size:1em;transition:0.3s;}
-.popup-content button:hover{background:#36529a;}
-@keyframes popin{from{transform:scale(0.7);opacity:0;}to{transform:scale(1);opacity:1;}}
+.birthday-popup{
+ position:fixed;
+ top:0; left:0;
+ width:100%; height:100%;
+ background:rgba(0,0,0,0.6);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ z-index:9999;
+}
+.birthday-box{
+ position:relative;
+ background:#fff;
+ padding:40px 30px;
+ border-radius:20px;
+ text-align:center;
+ max-width:400px;
+ width:90%;
+ animation:popUp .6s ease;
+ box-shadow:0 30px 60px rgba(0,0,0,.25);
+ overflow:hidden;
+}
+.birthday-box h2{color:#1e56a0;margin-bottom:10px;}
+.birthday-box h3{margin-bottom:10px;}
+.birthday-box p{color:#555;font-size:14px;}
+.close-btn{
+ margin-top:20px;
+ padding:10px 25px;
+ background:#1e56a0;
+ color:#fff;
+ border:none;
+ border-radius:10px;
+ font-size:16px;
+ font-weight:600;
+ cursor:pointer;
+ transition:0.3s;
+}
+.close-btn:hover{background:#6fa1ff;transform:scale(1.05);}
+
+/* Balloons */
+.balloons{
+ position:absolute;width:100%;height:100%;
+ top:0;left:0;pointer-events:none;overflow:hidden;
+}
+.balloon{
+ position:absolute;bottom:-100px;width:20px;height:30px;border-radius:50%;
+ opacity:0.8;animation:float 6s ease-in infinite;
+}
+.balloon.red{background:#ff4b5c; left:10%;}
+.balloon.blue{background:#1e56a0; left:25%; animation-delay:1s;}
+.balloon.green{background:#00b894; left:40%; animation-delay:2s;}
+.balloon.yellow{background:#ffcc00; left:55%; animation-delay:3s;}
+.balloon.purple{background:#9b59b6; left:70%; animation-delay:1.5s;}
+@keyframes float{
+ 0%{transform:translateY(0) rotate(0deg);}
+ 50%{transform:translateY(-150px) rotate(15deg);}
+ 100%{transform:translateY(-300px) rotate(-10deg);}
+}
+#confettiCanvas{
+ position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2;
+}
+@keyframes popUp{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* Footer */
+footer{
+ background:#102c54;color:#fff;text-align:center;
+ padding:22px;margin-top:50px
+}
+
+/* Responsive */
+@media(max-width:1000px){.new-book{grid-template-columns:1fr;}}
+@media(max-width:600px){
+ .slider-item{width:180px;}
+ .gallery-scroll img{width:200px;height:150px;}
+ .hero h1{font-size:28px;} .hero p{font-size:16px;}
+}
 </style>
 </head>
 <body>
 
-<!-- Birthday Popup -->
-<div id="birthday-popup">
-  <div class="popup-content">
-    <h2>🎉 Happy Birthday, Dr. Dhirendra Khare! 🎉</h2>
-    <p>Wishing you joy, health, and continued success in all your endeavors.</p>
-    <button onclick="document.getElementById('birthday-popup').classList.remove('show')">Close</button>
+<!-- Banner -->
+<div class="hero">
+  <div>
+    <h1>Dr. Dhirendra Khare</h1>
+    <p>Dean Faculty, JNKVV, Jabalpur</p>
   </div>
 </div>
 
-<!-- Hero Banner -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Dr. Dhirendra Khare</h1>
-    <p>Dean, Faculty | JNKVV, Jabalpur</p>
-    <img src="profile.jpg" alt="Dr. Dhirendra Khare">
-  </div>
-  <div class="scroll-down">&#x25BC;</div>
-</section>
-
-<!-- Navigation -->
-<nav id="navbar">
-  <a href="#about" class="active">About</a>
-  <a href="#career">Career</a>
-  <a href="#achievements">Achievements</a>
-  <a href="#books">Books</a>
-  <a href="#awards">Awards</a>
-  <a href="#contact">Contact</a>
+<!-- Menu -->
+<nav>
+ <a href="#">Home</a>
+ <a href="#">About</a>
+ <a href="#">Achievements</a>
+ <a href="#">Books</a>
+ <a href="#">Videos</a>
+ <a href="#">Gallery</a>
 </nav>
 
 <div class="container">
-  <!-- About -->
-  <section id="about">
-    <h2>About</h2>
-    <p>Dr. Dhirendra Khare is a distinguished academician and scientist in Plant Breeding and Seed Technology. With over three decades of teaching and research experience, he has significantly contributed to agricultural education, crop improvement, and national seed systems in India.</p>
-  </section>
 
-  <!-- Career -->
-  <section id="career">
-    <h2>Career & Journey</h2>
-    <p>He began as Assistant Professor in 1985, later serving as Senior Scientist, Principal Scientist, and Dean. He also served as Director of Instruction and Director of Research at JNKVV, leading academic and research initiatives.</p>
-  </section>
+<!-- New Book -->
+<section class="new-book">
+ <div>
+  <img src="new-book.jpg" alt="New Book">
+ </div>
+ <div>
+  <span class="badge">New Book Launch</span>
+  <h2>Advanced Seed Technology</h2>
+  <p>Modern seed breeding, genetic purity and agricultural innovation.</p><br>
+  <video controls>
+    <source src="book-intro.mp4" type="video/mp4">
+  </video>
+ </div>
+</section>
 
-  <!-- Achievements -->
-  <section id="achievements">
-    <h2>Achievements</h2>
-    <div class="stats">
-      <div class="stat-box"><span class="counter" data-target="100">0</span>+ Research Papers</div>
-      <div class="stat-box"><span class="counter" data-target="14">0</span> Books</div>
-      <div class="stat-box"><span class="counter" data-target="12">0</span> Crop Varieties</div>
-      <div class="stat-box"><span class="counter" data-target="30">0</span>+ Years Experience</div>
-    </div>
-  </section>
+<!-- Book Slider -->
+<h2 style="margin-top:70px;text-align:center">Published Books</h2>
+<div class="slider" id="bookSlider">
+ <div class="arrow left" onclick="slide('bookSlider',-1)">❮</div>
+ <div class="arrow right" onclick="slide('bookSlider',1)">❯</div>
+ <div class="slider-track">
+  <div class="slider-item"><img src="book1.jpg" alt=""><p>Seed Technology</p></div>
+  <div class="slider-item"><img src="book2.jpg" alt=""><p>Plant Breeding</p></div>
+  <div class="slider-item"><img src="book3.jpg" alt=""><p>Hybrid Crops</p></div>
+  <div class="slider-item"><img src="book4.jpg" alt=""><p>Molecular Seeds</p></div>
+ </div>
+</div>
 
-  <!-- Books Grid -->
-  <section id="books">
-    <h2>Published Books</h2>
-    <div class="gallery-grid">
-      <img src="book1.jpg" alt="Book 1">
-      <img src="book2.jpg" alt="Book 2">
-      <img src="book3.jpg" alt="Book 3">
-      <img src="book4.jpg" alt="Book 4">
-    </div>
-  </section>
+<!-- Award Slider -->
+<h2 style="margin-top:70px;text-align:center">Awards & Honours</h2>
+<div class="slider" id="awardSlider">
+ <div class="arrow left" onclick="slide('awardSlider',-1)">❮</div>
+ <div class="arrow right" onclick="slide('awardSlider',1)">❯</div>
+ <div class="slider-track">
+  <div class="slider-item"><img src="award1.jpg" alt=""></div>
+  <div class="slider-item"><img src="award2.jpg" alt=""></div>
+  <div class="slider-item"><img src="award3.jpg" alt=""></div>
+ </div>
+</div>
 
-  <!-- Awards Carousel -->
-  <section id="awards">
-    <h2>Awards & Conferences</h2>
-    <div class="carousel-container">
-      <div class="carousel" id="awardsCarousel">
-        <div class="carousel-item"><img src="award1.jpg" alt=""><p>Bharat Ratna Dr. C. Subramaniam Award</p></div>
-        <div class="carousel-item"><img src="award2.jpg" alt=""><p>Outstanding Team Research Award, ICAR</p></div>
-        <div class="carousel-item"><img src="conference1.jpg" alt=""><p>National Conference Participation</p></div>
-        <div class="carousel-item"><img src="conference2.jpg" alt=""><p>International Conference Visit, CIMMYT</p></div>
-      </div>
-      <div class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</div>
-      <div class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</div>
-    </div>
-  </section>
+<!-- Gallery -->
+<h2 style="margin-top:70px;text-align:center">Photo Gallery</h2>
+<div class="gallery-scroll">
+ <img src="g1.jpg" alt="">
+ <img src="g2.jpg" alt="">
+ <img src="g3.jpg" alt="">
+ <img src="g4.jpg" alt="">
+</div>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact">
-      <p>For professional inquiries or collaborations, you may reach out via email:</p>
-      <a href="mailto:dhirendra.kh@example.com">dhirendra.kh@example.com</a>
-    </div>
-  </section>
+</div>
+
+<!-- Birthday Popup -->
+<div class="birthday-popup" id="birthdayPopup">
+ <div class="birthday-box">
+  <h2>🎉 Happy Birthday 🎂</h2>
+  <h3>Dr. Dhirendra Khare</h3>
+  <p>Wishing you continued success, happiness, and good health.</p>
+  <button class="close-btn" onclick="closeBirthday()">Close</button>
+  <div class="balloons">
+    <div class="balloon red"></div>
+    <div class="balloon blue"></div>
+    <div class="balloon green"></div>
+    <div class="balloon yellow"></div>
+    <div class="balloon purple"></div>
+  </div>
+  <canvas id="confettiCanvas"></canvas>
+ </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+ <img id="lightboxImg">
 </div>
 
 <footer>
-  <p>© 2025 Dr. Dhirendra Khare. All rights reserved.</p>
+ &copy; 2025 Dr. Dhirendra Khare — All Rights Reserved
 </footer>
 
 <script>
-// Birthday popup
-window.addEventListener('load',()=>{document.getElementById('birthday-popup').classList.add('show');});
-
-// Section reveal
-const sections=document.querySelectorAll('section');
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('show');});},{threshold:0.1});
-sections.forEach(section=>observer.observe(section));
-
-// Menu active link
-const menuLinks=document.querySelectorAll('nav a');
-window.addEventListener('scroll',()=>{
-  let fromTop=window.scrollY+150;
-  menuLinks.forEach(link=>{
-    const section=document.querySelector(link.hash);
-    if(section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){
-      menuLinks.forEach(l=>l.classList.remove('active'));
-      link.classList.add('active');
-    }
-  });
-});
-
-// Animated counters
-const counters=document.querySelectorAll('.counter');
-counters.forEach(counter=>{
-  const updateCount=()=>{
-    const target=+counter.getAttribute('data-target');
-    const count=+counter.innerText;
-    const increment=Math.ceil(target/200);
-    if(count<target){counter.innerText=count+increment;setTimeout(updateCount,20);}
-    else{counter.innerText=target;}
-  }
-  updateCount();
-});
-
-// Awards carousel
-function scrollCarousel(direction){
-  const carousel=document.getElementById('awardsCarousel');
-  carousel.scrollBy({left:direction*240,behavior:'smooth'});
+// Slider function
+function slide(sliderId,dir){
+ const slider=document.getElementById(sliderId).querySelector('.slider-track');
+ const itemWidth=slider.querySelector('.slider-item').offsetWidth + 20;
+ slider.scrollBy({left:dir*itemWidth, behavior:'smooth'});
 }
+
+// Lightbox
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=document.getElementById('lightboxImg');
+document.querySelectorAll('.slider-item img, .gallery-scroll img').forEach(img=>{
+ img.onclick=()=>{lightboxImg.src=img.src;lightbox.classList.add('show');}
+});
+lightbox.onclick=()=>lightbox.classList.remove('show');
+
+// Birthday popup
+window.onload=function(){document.getElementById('birthdayPopup').style.display='flex';}
+function closeBirthday(){document.getElementById('birthdayPopup').style.display='none';}
+
+// Confetti
+const canvas = document.getElementById('confettiCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+const confettiCount=100;const confetti=[];
+for(let i=0;i<confettiCount;i++){confetti.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*6+2,d:Math.random()*confettiCount,color:`hsl(${Math.random()*360},70%,60%)`,tilt:Math.random()*10-10});}
+let angle=0;
+function drawConfetti(){ctx.clearRect(0,0,canvas.width,canvas.height);confetti.forEach(c=>{ctx.beginPath();ctx.lineWidth=c.r;ctx.strokeStyle=c.color;ctx.moveTo(c.x+c.tilt,c.y);ctx.lineTo(c.x,c.y+c.tilt+c.r);ctx.stroke();});updateConfetti();}
+function updateConfetti(){angle+=0.01;confetti.forEach(c=>{c.y+=(Math.cos(angle+c.d)+1+c.r/2);c.x+=Math.sin(angle);if(c.y>canvas.height){c.y=0;c.x=Math.random()*canvas.width;}});requestAnimationFrame(drawConfetti);}
+drawConfetti();
 </script>
 
 </body>
