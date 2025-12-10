@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Awards & Honours</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8faf8;
+      color: #333;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 70px auto;
+      padding: 40px 50px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2em;
+      color: #004d00;
+      margin-bottom: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      text-align: justify;
+      font-size: 1.07em;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      margin-left: 22px;
+      line-height: 2;
+      font-size: 1.05em;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Animation */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+
+    .fade-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container fade-section" id="awardsSection">
+    <h1>Awards & Honours</h1>
+
+    <p>
+      In recognition of a lifelong dedication to agricultural education and academic excellence, I was honoured with the 
+      <strong>Bharat Ratna Dr. C. Subramaniam Award</strong> by the Indian Council of Agricultural Research (ICAR) during 
+      2007–2008. This prestigious distinction acknowledged my contribution as an Outstanding Teacher in Agriculture and 
+      Allied Sciences.
+    </p>
+
+    <p>
+      My academic career has been enriched by the opportunity to serve in several senior leadership roles, where I worked 
+      to strengthen institutional systems, promote research innovation, and foster a culture of academic integrity and 
+      excellence.
+    </p>
+
+    <p style="font-weight: 600; margin-top: 25px;">
+      Prestigious leadership appointments:
+    </p>
+
+    <ul>
+      <li>Dean, Faculty of Agriculture, JNKVV, Jabalpur</li>
+      <li>Director of Research, JNKVV, Jabalpur</li>
+      <li>Director of Instruction, JNKVV, Jabalpur</li>
+      <li>Dean, College of Agriculture, JNKVV, Jabalpur</li>
+    </ul>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    observer.observe(document.getElementById('awardsSection'));
+  </script>
+
+</body>
+</html>
