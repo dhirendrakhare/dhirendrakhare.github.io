@@ -6,106 +6,96 @@
   <title>Professional Overview</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/your-kit.js" crossorigin="anonymous"></script>
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f9f9f9;
       color: #333;
       margin: 0;
-      line-height: 1.8;
+      line-height: 1.9;
     }
 
     .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 40px;
-      max-width: 1000px;
-      margin: 80px auto;
+      max-width: 900px;
+      margin: 100px auto;
       background-color: #fff;
-      padding: 50px;
+      padding: 60px;
       border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
     }
 
-    .about-image {
-      flex: 1 1 250px;
-      text-align: center;
-    }
-
-    .about-image img {
-      width: 220px;
-      border-radius: 50%;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-
-    .about-image img:hover {
-      transform: scale(1.05);
-    }
-
-    .about-text {
-      flex: 2 1 500px;
+    .about-container.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .about-text h2 {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       color: #004d00;
       font-size: 2em;
       font-weight: 600;
     }
 
     .about-text p {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       text-align: justify;
-      font-size: 1.05em;
-      line-height: 1.9;
+      font-size: 1.08em;
     }
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       .about-container {
-        flex-direction: column;
-        padding: 30px 20px;
-      }
-
-      .about-text, .about-image {
-        text-align: center;
-      }
-
-      .about-text p {
-        text-align: justify;
+        padding: 35px 25px;
+        margin: 80px 15px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- About Section -->
-  <section class="about-container">
-    <!-- Profile Image -->
-    <div class="about-image">
-      <img src="profile.jpg" alt="Profile Image">
-    </div>
+  <section class="about-container" id="aboutSection">
 
-    <!-- Narrative Text Content -->
     <div class="about-text">
       <h2><i class="fas fa-user"></i> Professional Overview</h2>
+
       <p>
         For over three decades, I have devoted my life to the advancement of agricultural science, specializing in Plant Breeding and Seed Technology. My journey began with a deep fascination for the intricate patterns of plant genetics, which has since evolved into a lifelong commitment to research, teaching, and leadership in the field.
       </p>
+
       <p>
         Along the way, I have had the honor of serving in senior academic and administrative roles, including Dean of the Faculty of Agriculture, Director of Research, Director of Instruction, and Dean of the College of Agriculture. Each position offered the opportunity to foster institutional growth, enhance academic governance, and build research infrastructure that supports both students and the wider scientific community.
       </p>
+
       <p>
         Guiding and mentoring undergraduate, postgraduate, and doctoral students has been one of the most rewarding aspects of my career. My academic and research pursuits focus on crop improvement, genetic enhancement, seed quality systems, and sustainable farming practices, aiming always to bridge the gap between scientific knowledge and practical agricultural solutions.
       </p>
+
       <p>
         Through this platform, I hope to share my professional journey, highlight key contributions, and provide insights into ongoing research and initiatives. It is a reflection of a career dedicated to nurturing knowledge, fostering innovation, and inspiring the next generation of agricultural scientists.
       </p>
+
     </div>
+
   </section>
+
+  <script>
+    const section = document.getElementById('aboutSection');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          section.classList.add('show');
+        }
+      });
+    });
+
+    observer.observe(section);
+  </script>
 
 </body>
 </html>
