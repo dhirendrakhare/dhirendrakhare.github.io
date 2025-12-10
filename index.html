@@ -214,19 +214,49 @@ nav a:hover::after{width:100%}
 .container{max-width:1200px;margin:auto;padding:50px 20px}
 
 /* ================= New Book ================= */
-.new-book{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:30px;
- background:#eef3ff;
- padding:35px;
- border-radius:20px;
- box-shadow:0 15px 40px rgba(0,0,0,.06)
+
+
+.book-3d {
+  display: inline-block;
+  perspective: 1200px; /* Depth */
 }
-.new-book img{
- width:100%;max-width:260px;height:360px;
- object-fit:cover;border-radius:20px;background:#fff;padding:10px
+
+.book-cover {
+  position: relative;
+  width: 180px; /* Front cover width */
+  height: 250px; /* Front cover height */
+  transform-style: preserve-3d;
+  transform: rotateY(-20deg) rotateX(0deg); /* Angled view */
+  transition: transform 0.6s;
 }
+
+/* Front cover */
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  display: block;
+  transform: translateZ(10px);
+}
+
+/* Spine */
+.book-spine {
+  position: absolute;
+  left: -15px; /* Spine thickness */
+  top: 0;
+  width: 15px; /* Spine thickness */
+  height: 100%;
+  background: #004d00; /* Spine color */
+  border-radius: 4px;
+  transform: rotateY(90deg) translateZ(-7.5px);
+}
+
+/* Hover effect for rotation */
+.book-cover:hover {
+  transform: rotateY(-10deg) rotateX(0deg) scale(1.05);
+}
+
 .new-book video{
  width:100%;border-radius:20px;
  box-shadow:0 10px 30px rgba(0,0,0,.15)
@@ -487,13 +517,20 @@ footer{
   </p>
 </section>
 
-<!-- New Book Section -->
-  <section class="new-book">
 
-    <!-- Book Image -->
-    <div>
-  <img src="https://github.com/dhirendrakhare/my-book-images/blob/main/Seed%20Technology%202nd%20Revised%20&%20Enlarged%20Edition.jpg?raw=true" alt="Book Cover">
-</div>
+<!-- New Book Section -->
+<section class="new-book" style="text-align:center; margin:60px 0;">
+
+  <!-- 3D Book Container -->
+  <div class="book-3d">
+    <div class="book-cover">
+      <img src="https://github.com/dhirendrakhare/my-book-images/blob/main/Seed%20Technology%202nd%20Revised%20&%20Enlarged%20Edition.jpg?raw=true" 
+           alt="Book Cover">
+      <div class="book-spine"></div>
+    </div>
+  </div>
+
+</section>
 
     <!-- Content + Video -->
     <div>
