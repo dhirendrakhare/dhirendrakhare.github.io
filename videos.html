@@ -44,26 +44,33 @@
 </head>
 <body>
     <h1>Video Lectures - Dr. Dhirendra Khare</h1>
-    <div class="video-grid">
-        <div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/eiMGjX-wHTQ" title="How to Improve Teaching? - Dr. Dhirendra Khare" allowfullscreen></iframe>
-            </div>
-            <div class="video-title">How to Improve Teaching?</div>
-        </div>
-        <div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Video 2 Title" allowfullscreen></iframe>
-            </div>
-            <div class="video-title">Video 2 Title</div>
-        </div>
-        <div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Video 3 Title" allowfullscreen></iframe>
-            </div>
-            <div class="video-title">Video 3 Title</div>
-        </div>
-        <!-- Add more videos here in the same format -->
+    <div class="video-grid" id="videoGrid">
+        <!-- Videos will be inserted here by JavaScript -->
     </div>
+
+    <script>
+        // Add your videos here: {url: "YouTube URL", title: "Video Title"}
+        const videos = [
+            { url: "https://www.youtube.com/embed/eiMGjX-wHTQ", title: "How to Improve Teaching?" },
+            { url: "https://www.youtube.com/embed/VIDEO_ID_2", title: "Video 2 Title" },
+            { url: "https://www.youtube.com/embed/VIDEO_ID_3", title: "Video 3 Title" }
+            // Add more videos in this format
+        ];
+
+        const videoGrid = document.getElementById("videoGrid");
+
+        videos.forEach(video => {
+            const videoDiv = document.createElement("div");
+
+            videoDiv.innerHTML = `
+                <div class="video-container">
+                    <iframe src="${video.url}" title="${video.title}" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">${video.title}</div>
+            `;
+
+            videoGrid.appendChild(videoDiv);
+        });
+    </script>
 </body>
 </html>
