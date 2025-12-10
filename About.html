@@ -67,34 +67,43 @@
 </head>
 <body>
 
-<section class="about-container">
+  <!-- Header placeholder -->
+  <div id="header-placeholder"></div>
 
-  <div class="about-text">
-    <h2>Professional Overview</h2>
+  <section class="about-container">
+    <div class="about-text">
+      <h2>Professional Overview</h2>
 
-    <p>
-      For over three decades, I have devoted my academic life to the advancement of agricultural science,
-      with a focused specialisation in Plant Breeding and Seed Technology.
-    </p>
+      <p>
+        For over three decades, I have devoted my academic life to the advancement of agricultural science,
+        with a focused specialisation in Plant Breeding and Seed Technology.
+      </p>
 
-    <p>
-      I have had the privilege of serving in senior academic and administrative leadership roles, including
-      Dean of Faculty of Agriculture, Director of Research, Director of Instruction, and Dean of the College of Agriculture.
-    </p>
+      <p>
+        I have had the privilege of serving in senior academic and administrative leadership roles, including
+        Dean of Faculty of Agriculture, Director of Research, Director of Instruction, and Dean of the College of Agriculture.
+      </p>
 
-    <p>
-      Mentoring undergraduate, postgraduate, and doctoral scholars has been one of the most fulfilling aspects
-      of my professional journey. My work has remained centred on crop improvement, genetic enhancement, seed
-      quality systems, and sustainable agricultural practices.
-    </p>
+      <p>
+        Mentoring undergraduate, postgraduate, and doctoral scholars has been one of the most fulfilling aspects
+        of my professional journey. My work has remained centred on crop improvement, genetic enhancement, seed
+        quality systems, and sustainable agricultural practices.
+      </p>
 
-    <p>
-      Through this platform, I share my academic journey, highlight research contributions, and present ongoing
-      initiatives that reflect a lifelong commitment to education, innovation, and scientific excellence.
-    </p>
-  </div>
+      <p>
+        Through this platform, I share my academic journey, highlight research contributions, and present ongoing
+        initiatives that reflect a lifelong commitment to education, innovation, and scientific excellence.
+      </p>
+    </div>
+  </section>
 
-</section>
+  <script>
+    // Load header.html dynamically
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header-placeholder').innerHTML = data)
+      .catch(err => console.error('Failed to load header:', err));
+  </script>
 
 </body>
 </html>
