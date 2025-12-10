@@ -10,76 +10,104 @@
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8faf8;
+      background: #eef3ff;
       color: #333;
     }
 
     .container {
       max-width: 950px;
-      margin: 70px auto;
-      padding: 45px 55px;
+      margin: 90px auto;
+      padding: 60px 70px;
       background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+
+      /* Animation base */
+      opacity: 0;
+      transform: translateY(35px);
+      transition: all 1s ease-out;
+    }
+
+    .container.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h1 {
       text-align: center;
-      font-size: 2.2em;
-      color: #004d00;
-      margin-bottom: 40px;
+      font-size: 2.5em;
+      color: #0a1e46;
+      margin-bottom: 45px;
       letter-spacing: 0.5px;
     }
 
     p {
       text-align: justify;
-      font-size: 1.08em;
+      font-size: 1.09em;
       line-height: 1.95;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     ul {
-      margin-left: 22px;
-      font-size: 1.06em;
-      line-height: 2;
+      margin-left: 24px;
+      font-size: 1.08em;
+      line-height: 2.1;
+      padding-left: 10px;
     }
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
     }
 
-    /* Fade-in Animation */
-    .fade-section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s ease-out;
+    li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #0a1e46;
+      font-size: 0.95em;
+      font-weight: bold;
     }
 
-    .fade-section.show {
-      opacity: 1;
-      transform: translateY(0);
+    .section-label {
+      font-weight: 600;
+      color: #0a1e46;
+      margin-top: 35px;
+      font-size: 1.12em;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 40px 24px;
+        margin: 55px auto;
+      }
+      h1 {
+        font-size: 2.1em;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container fade-section" id="leadershipSection">
+  <div class="container" id="leadershipSection">
     <h1>Leadership & Institutional Roles</h1>
 
     <p>
-      Throughout my academic career, I have been entrusted with significant leadership responsibilities that allowed me 
-      to contribute meaningfully to the advancement of agricultural education, institutional governance, and research 
-      development. My work has consistently focused on strengthening academic structures, promoting innovation, and 
-      aligning educational initiatives with national agricultural priorities.
+      Throughout the academic journey, significant leadership responsibilities were undertaken to strengthen
+      agricultural education, institutional governance, and research-driven development. The focus consistently
+      remained on academic excellence, innovation, and long-term institutional growth.
     </p>
 
     <p>
-      At Jawaharlal Nehru Krishi Vishwa Vidyalaya (JNKVV), Jabalpur, I had the privilege of serving in several senior 
-      roles that played a key part in shaping institutional policies and academic direction.
+      At Jawaharlal Nehru Krishi Vishwa Vidyalaya (JNKVV), Jabalpur, several senior roles were carried out that
+      contributed to shaping academic frameworks and organizational direction.
     </p>
 
-    <p style="font-weight: 600; margin-top: 25px;">Key leadership positions held:</p>
+    <div class="section-label">Key Leadership Positions Held</div>
 
     <ul>
       <li>Dean, Faculty of Agriculture, JNKVV, Jabalpur</li>
@@ -89,10 +117,9 @@
     </ul>
 
     <p>
-      Through these roles, I actively contributed to curriculum modernization, research capacity building, policy 
-      formulation, and the promotion of sustainable agricultural practices. My leadership initiatives focused on 
-      creating a strong academic foundation while encouraging innovation, collaboration, and excellence in teaching 
-      and research.
+      These roles enabled meaningful contributions to curriculum modernization, research capacity building,
+      institutional policy development, and the promotion of sustainable agricultural practices, while fostering
+      innovation, collaboration, and academic excellence.
     </p>
   </div>
 
