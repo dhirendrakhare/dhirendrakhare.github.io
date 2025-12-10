@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leadership & Institutional Roles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8faf8;
+      color: #333;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 70px auto;
+      padding: 45px 55px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2em;
+      color: #004d00;
+      margin-bottom: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      text-align: justify;
+      font-size: 1.08em;
+      line-height: 1.95;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      margin-left: 22px;
+      font-size: 1.06em;
+      line-height: 2;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Fade-in Animation */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+
+    .fade-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container fade-section" id="leadershipSection">
+    <h1>Leadership & Institutional Roles</h1>
+
+    <p>
+      Throughout my academic career, I have been entrusted with significant leadership responsibilities that allowed me 
+      to contribute meaningfully to the advancement of agricultural education, institutional governance, and research 
+      development. My work has consistently focused on strengthening academic structures, promoting innovation, and 
+      aligning educational initiatives with national agricultural priorities.
+    </p>
+
+    <p>
+      At Jawaharlal Nehru Krishi Vishwa Vidyalaya (JNKVV), Jabalpur, I had the privilege of serving in several senior 
+      roles that played a key part in shaping institutional policies and academic direction.
+    </p>
+
+    <p style="font-weight: 600; margin-top: 25px;">Key leadership positions held:</p>
+
+    <ul>
+      <li>Dean, Faculty of Agriculture, JNKVV, Jabalpur</li>
+      <li>Director of Research, JNKVV, Jabalpur</li>
+      <li>Director of Instruction, JNKVV, Jabalpur</li>
+      <li>Dean, College of Agriculture, JNKVV, Jabalpur</li>
+    </ul>
+
+    <p>
+      Through these roles, I actively contributed to curriculum modernization, research capacity building, policy 
+      formulation, and the promotion of sustainable agricultural practices. My leadership initiatives focused on 
+      creating a strong academic foundation while encouraging innovation, collaboration, and excellence in teaching 
+      and research.
+    </p>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    observer.observe(document.getElementById('leadershipSection'));
+  </script>
+
+</body>
+</html>
