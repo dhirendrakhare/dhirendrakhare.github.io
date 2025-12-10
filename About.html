@@ -67,9 +67,7 @@
 </head>
 <body>
 
-  <!-- Header placeholder -->
-  <div id="header-placeholder"></div>
-
+  
   <section class="about-container">
     <div class="about-text">
       <h2>Professional Overview</h2>
@@ -97,13 +95,5 @@
     </div>
   </section>
 
-  <script>
-    // Load header.html dynamically
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('header-placeholder').innerHTML = data)
-      .catch(err => console.error('Failed to load header:', err));
-  </script>
-
-</body>
+  </body>
 </html>
