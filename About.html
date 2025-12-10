@@ -4,53 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Professional Overview</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/your-kit.js" crossorigin="anonymous"></script>
 
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      background: #eef3ff;
+      color: #2d2d2d;
       margin: 0;
       line-height: 1.9;
     }
 
     .about-container {
-      max-width: 900px;
+      max-width: 950px;
       margin: 100px auto;
-      background-color: #fff;
-      padding: 60px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s ease-out;
-    }
-
-    .about-container.show {
-      opacity: 1;
-      transform: translateY(0);
+      background: linear-gradient(145deg, #ffffff, #f5f8ff);
+      padding: 70px 75px;
+      border-radius: 20px;
+      box-shadow: 0 20px 55px rgba(0,0,0,0.06);
     }
 
     .about-text h2 {
       text-align: center;
-      margin-bottom: 35px;
-      color: #004d00;
-      font-size: 2em;
+      margin-bottom: 45px;
+      color: #0a1e46;
+      font-size: 2.4em;
       font-weight: 600;
+      opacity: 0;
+      animation: fadeInDown 1s ease forwards;
     }
 
     .about-text p {
-      margin-bottom: 22px;
+      margin-bottom: 26px;
       text-align: justify;
-      font-size: 1.08em;
+      font-size: 1.1em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .about-text p:nth-of-type(1) { animation-delay: 0.3s; }
+    .about-text p:nth-of-type(2) { animation-delay: 0.6s; }
+    .about-text p:nth-of-type(3) { animation-delay: 0.9s; }
+    .about-text p:nth-of-type(4) { animation-delay: 1.2s; }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
       .about-container {
-        padding: 35px 25px;
+        padding: 45px 30px;
         margin: 80px 15px;
       }
     }
@@ -58,44 +67,34 @@
 </head>
 <body>
 
-  <section class="about-container" id="aboutSection">
+<section class="about-container">
 
-    <div class="about-text">
-      <h2><i class="fas fa-user"></i> Professional Overview</h2>
+  <div class="about-text">
+    <h2>Professional Overview</h2>
 
-      <p>
-        For over three decades, I have devoted my life to the advancement of agricultural science, specializing in Plant Breeding and Seed Technology. My journey began with a deep fascination for the intricate patterns of plant genetics, which has since evolved into a lifelong commitment to research, teaching, and leadership in the field.
-      </p>
+    <p>
+      For over three decades, I have devoted my academic life to the advancement of agricultural science,
+      with a focused specialisation in Plant Breeding and Seed Technology.
+    </p>
 
-      <p>
-        Along the way, I have had the honor of serving in senior academic and administrative roles, including Dean of the Faculty of Agriculture, Director of Research, Director of Instruction, and Dean of the College of Agriculture. Each position offered the opportunity to foster institutional growth, enhance academic governance, and build research infrastructure that supports both students and the wider scientific community.
-      </p>
+    <p>
+      I have had the privilege of serving in senior academic and administrative leadership roles, including
+      Dean of Faculty of Agriculture, Director of Research, Director of Instruction, and Dean of the College of Agriculture.
+    </p>
 
-      <p>
-        Guiding and mentoring undergraduate, postgraduate, and doctoral students has been one of the most rewarding aspects of my career. My academic and research pursuits focus on crop improvement, genetic enhancement, seed quality systems, and sustainable farming practices, aiming always to bridge the gap between scientific knowledge and practical agricultural solutions.
-      </p>
+    <p>
+      Mentoring undergraduate, postgraduate, and doctoral scholars has been one of the most fulfilling aspects
+      of my professional journey. My work has remained centred on crop improvement, genetic enhancement, seed
+      quality systems, and sustainable agricultural practices.
+    </p>
 
-      <p>
-        Through this platform, I hope to share my professional journey, highlight key contributions, and provide insights into ongoing research and initiatives. It is a reflection of a career dedicated to nurturing knowledge, fostering innovation, and inspiring the next generation of agricultural scientists.
-      </p>
+    <p>
+      Through this platform, I share my academic journey, highlight research contributions, and present ongoing
+      initiatives that reflect a lifelong commitment to education, innovation, and scientific excellence.
+    </p>
+  </div>
 
-    </div>
-
-  </section>
-
-  <script>
-    const section = document.getElementById('aboutSection');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          section.classList.add('show');
-        }
-      });
-    });
-
-    observer.observe(section);
-  </script>
+</section>
 
 </body>
 </html>
