@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Awards & Honours</title>
+  <title>Awards & Recognitions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -14,109 +14,78 @@
       color: #333;
     }
 
-    .container {
-      max-width: 950px;
-      margin: 70px auto;
-      padding: 40px 50px;
-      background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.2em;
-      color: #004d00;
-      margin-bottom: 40px;
-      letter-spacing: 0.5px;
-    }
-
-    p {
-      text-align: justify;
-      font-size: 1.07em;
-      line-height: 1.9;
-      margin-bottom: 20px;
-    }
-
-    ul {
-      margin-left: 22px;
-      line-height: 2;
-      font-size: 1.05em;
-    }
-
-    li {
-      margin-bottom: 6px;
-    }
-
-    /* Animation */
-    .fade-section {
+    /* Fade Animation */
+    .fade-up {
       opacity: 0;
       transform: translateY(30px);
-      transition: all 1s ease-out;
+      animation: fadeUp 1s ease forwards;
     }
 
-    .fade-section.show {
-      opacity: 1;
-      transform: translateY(0);
+    .fade-delay-1 { animation-delay: 0.2s; }
+    .fade-delay-2 { animation-delay: 0.5s; }
+    .fade-delay-3 { animation-delay: 0.8s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 
 <body>
-<section class="awards-section">
 
-  <h1> Awards & Honors</h1>
+<section style="
+  max-width:900px;
+  margin:80px auto;
+  padding:50px 60px;
+  background:#ffffff;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+" class="fade-up fade-delay-1">
 
-  <h2>Bharat Ratna Dr. C. Subramaniam Award</h2>
+  <h2 style="
+    text-align:center;
+    color:#0a1e46;
+    font-size:2.2em;
+    margin-bottom:40px;
+    letter-spacing:0.5px;
+  " class="fade-up fade-delay-2">
+    Awards & Recognitions
+  </h2>
 
-  <p>
-    Dr. Dhirendra Khare was honoured with the <strong>Bharat Ratna Dr. C. Subramaniam Award</strong> for Outstanding 
-    Teacher in Agriculture and Allied Sciences by the Indian Council of Agricultural Research (ICAR) for the biennium 
-    2007–2008. This prestigious recognition reflects his exceptional contributions to agricultural education and his 
-    long-standing commitment to academic excellence.
-  </p>
+  <div style="
+    background:#f4f7ff;
+    padding:25px 30px;
+    border-radius:12px;
+    margin-bottom:25px;
+    border-left:5px solid #0a1e46;
+  " class="fade-up fade-delay-3">
+    <h3 style="color:#0a1e46; margin-bottom:10px;">Teaching Excellence</h3>
+    <p style="font-size:1.08em; line-height:1.9; color:#333; margin:0;">
+      Recipient of the <strong>Bharat Ratna Dr. C. Subramaniam Award</strong> from ICAR for 
+      <em>Outstanding Teaching in Agriculture and Allied Sciences</em> during the biennium 
+      <strong>2007–2008</strong>, recognising exceptional academic contribution and educational leadership.
+    </p>
+  </div>
 
-  <h3>About the Award</h3>
-
-  <ul>
-    <li><strong>Awarding Body:</strong> Indian Council of Agricultural Research (ICAR)</li>
-    <li><strong>Category:</strong> Outstanding Teacher in Agriculture and Allied Sciences</li>
-    <li><strong>Biennium:</strong> 2007–2008</li>
-    <li><strong>Recipient:</strong> Dr. Dhirendra Khare, Professor of Plant Breeding & Genetics, JNKVV, Jabalpur</li>
-  </ul>
-
-  <h3>Significance</h3>
-
-  <p>
-    This award is considered one of ICAR’s most prestigious honours, conferred upon educators who demonstrate 
-    outstanding excellence in agricultural teaching, innovation in pedagogy, and meaningful contributions to student 
-    mentorship and institutional development. It recognises individuals who have played a pivotal role in shaping the 
-    future of agricultural education in the country.
-  </p>
-
-  <h3>Contributions Leading to the Award</h3>
-
-  <p>
-    Dr. Khare’s work in curriculum development, research-led teaching, mentorship of postgraduate and doctoral 
-    scholars, and his initiatives to strengthen practical, field-oriented learning significantly contributed to this 
-    recognition. His efforts consistently bridged classroom learning with real-world agricultural challenges, helping 
-    to create a strong foundation for future scientists and professionals in the agricultural sector.
-  </p>
+  <div style="
+    background:#f4f7ff;
+    padding:25px 30px;
+    border-radius:12px;
+    border-left:5px solid #0a1e46;
+  " class="fade-up fade-delay-3">
+    <h3 style="color:#0a1e46; margin-bottom:10px;">Research Excellence</h3>
+    <p style="font-size:1.08em; line-height:1.9; color:#333; margin:0;">
+      Honoured with the <strong>Outstanding Team Research Award</strong> by ICAR (2007–2008) for 
+      distinguished work in <em>crop improvement</em> and <em>enhancement of soybean seed availability</em>, 
+      contributing significantly to agricultural advancement.
+    </p>
+  </div>
 
 </section>
-
-
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    });
-
-    observer.observe(document.getElementById('awardsSection'));
-  </script>
 
 </body>
 </html>
