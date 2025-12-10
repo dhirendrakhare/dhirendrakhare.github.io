@@ -5,31 +5,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dr. Dhirendra Khare</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#f5f7fd;color:#333}
 
-/* Banner */
+/* ================= Banner ================= */
+/* ================= Professional Banner ================= /* ================= Professional Banner with Photo & Links ================= */
 .hero{
- height:50vh;
- background:linear-gradient(135deg,#102c54,#1e56a0);
- color:#fff;
- display:flex;
- align-items:center;
- justify-content:center;
- text-align:center;
- padding:20px;
+  height:30vh;
+  background:
+    linear-gradient(rgba(10,30,70,0.85), rgba(10,30,70,0.85)),
+    url('banner-bg.jpg');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 50px;
+  position:relative;
+  color:#fff;
 }
-.hero h1{font-size:36px;}
-.hero p{font-size:18px;opacity:.9;}
 
-/* Menu */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, rgba(30,86,160,.7), rgba(10,30,70,.9));
+}
+
+.hero-content{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  max-width:1200px;
+  position:relative;
+  z-index:2;
+  gap:50px;
+}
+
+.hero-photo{
+  flex:1;
+}<!-- Hero Banner -->
+<div class="hero">
+  <div class="hero-content" style="justify-content: space-between;">
+    
+    <!-- Left: Name & Photo -->
+    <div style="display:flex; align-items:center; gap:20px;">
+      <div class="hero-photo">
+        <img src="dr-khare.png" alt="Dr. Dhirendra Khare">
+      </div>
+      <div style="color:#fff;">
+        <h1 style="font-size:48px; font-weight:700;">Dr. Dhirendra Khare</h1>
+        <p style="font-size:18px; opacity:0.9;">Distinguished Academician | Author | Dean Faculty, JNKVV, Jabalpur</p>
+      </div>
+    </div>
+
+    <!-- Right: Links -->
+    <div class="hero-links" style="justify-content:flex-end;">
+      <a href="https://www.linkedin.com/in/dr-dhirendra-khare" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://www.researchgate.net/profile/Dhirendra_Khare" target="_blank">
+        <i class="fab fa-researchgate"></i> ResearchGate
+      </a>
+      <a href="https://scholar.google.com/citations?user=XXXXXX" target="_blank">
+        <i class="fas fa-graduation-cap"></i> Google Scholar
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+.hero-links a{
+  display:flex;
+  align-items:center;
+  gap:8px; /* space between icon and text */
+  background:#1e56a0;
+  padding:12px 22px;
+  border-radius:10px;
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.hero-links a:hover{
+  background:#6fa1ff;
+  transform:translateY(-2px);
+}
+
+.hero-links i{
+  font-size:18px;
+}
+
+/* ================= Menu ================= */
 nav{
  background:#fff;
  display:flex;
  justify-content:center;
- flex-wrap:wrap;
- gap:20px;
+ gap:30px;
  padding:16px 10px;
  box-shadow:0 10px 30px rgba(0,0,0,.05)
 }
@@ -58,10 +134,10 @@ nav a::after{
 }
 nav a:hover::after{width:100%}
 
-/* Container */
-.container{max-width:1200px;margin:auto;padding:30px 20px;}
+/* ================= Container ================= */
+.container{max-width:1200px;margin:auto;padding:50px 20px}
 
-/* New Book Section */
+/* ================= New Book ================= */
 .new-book{
  display:grid;
  grid-template-columns:1fr 1fr;
@@ -85,21 +161,63 @@ nav a:hover::after{width:100%}
  font-weight:600;display:inline-block
 }
 
-/* Slider */
-.slider{position:relative;overflow:hidden;margin-top:60px;}
+/* Achievement Counter */
+.stats{
+display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-top:40px
+}
+.stat{
+background:#fff;padding:20px 30px;border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);text-align:center
+}
+.stat h2{font-size:36px;color:#1e56a0}
+
+
+
+
+/* Achievements Counters */
+.counter-box{
+  background:#eef3ff;
+  padding:20px 30px;
+  border-radius:15px;
+  width:160px;
+  box-shadow:0 8px 20px rgba(0,0,0,.1);
+  transition:transform .3s;
+  margin:10px;
+  opacity:0;transform:translateY(30px);transition:all .8s ease-out;
+}
+.counter-box.visible{opacity:1;transform:translateY(0);}
+.counter-box:hover{transform:translateY(-5px);}
+.counter{font-size:36px;color:#1e56a0;}
+.counter-box p{margin-top:5px;font-weight:500;}
+
+
+/* ================= Sliders ================= */
+.slider{position:relative;overflow:hidden;margin-top:60px}
 .slider-track{
  display:flex;gap:20px;width:max-content;
- transition:transform 0.5s ease;
+ animation:scroll 20s linear infinite
 }
+.slider:hover .slider-track{animation-play-state:paused}
+
+@keyframes scroll{
+ 0%{transform:translateX(0)}
+ 100%{transform:translateX(-50%)}
+}
+
 .slider-item{
  width:230px;
  background:#fff;
  padding:15px;border-radius:18px;text-align:center;
  box-shadow:0 10px 28px rgba(0,0,0,.08);
- cursor:pointer;transition:.35s;
+ transition:.35s;cursor:pointer
 }
-.slider-item:hover{transform:translateY(-10px);box-shadow:0 20px 45px rgba(0,0,0,.15);}
-.slider-item img{width:100%;height:240px;object-fit:cover;border-radius:15px;}
+.slider-item:hover{
+ transform:translateY(-10px);
+ box-shadow:0 20px 45px rgba(0,0,0,.15)
+}
+.slider-item img{
+ width:100%;height:240px;object-fit:cover;border-radius:15px
+}
 .arrow{
  position:absolute;top:45%;
  transform:translateY(-50%);
@@ -113,7 +231,7 @@ nav a:hover::after{width:100%}
 .arrow.left{left:10px}
 .arrow.right{right:10px}
 
-/* Gallery */
+/* ================= Gallery ================= */
 .gallery-scroll{
  display:flex;gap:15px;overflow-x:auto;
  scroll-behavior:smooth;margin-top:60px
@@ -128,11 +246,13 @@ nav a:hover::after{width:100%}
 }
 .gallery-scroll img:hover{transform:scale(1.05)}
 
-/* Lightbox */
+/* ================= Lightbox ================= */
 .lightbox{
- position:fixed;top:0;left:0;width:100%;height:100%;
+ position:fixed;top:0;left:0;
+ width:100%;height:100%;
  background:rgba(0,0,0,.85);
- display:none;align-items:center;justify-content:center;z-index:999
+ display:none;align-items:center;justify-content:center;
+ z-index:999
 }
 .lightbox.show{display:flex}
 .lightbox img{
@@ -140,7 +260,7 @@ nav a:hover::after{width:100%}
  border-radius:20px;box-shadow:0 40px 80px rgba(0,0,0,.5)
 }
 
-/* Birthday Popup */
+/* ================= Birthday Popup ================= */
 .birthday-popup{
  position:fixed;
  top:0; left:0;
@@ -163,31 +283,33 @@ nav a:hover::after{width:100%}
  box-shadow:0 30px 60px rgba(0,0,0,.25);
  overflow:hidden;
 }
-.birthday-box h2{color:#1e56a0;margin-bottom:10px;}
+.birthday-box h2{color:#1e56a0; margin-bottom:10px;}
 .birthday-box h3{margin-bottom:10px;}
-.birthday-box p{color:#555;font-size:14px;}
+.birthday-box p{color:#555; font-size:14px;}
 .close-btn{
- margin-top:20px;
- padding:10px 25px;
- background:#1e56a0;
- color:#fff;
- border:none;
- border-radius:10px;
- font-size:16px;
- font-weight:600;
+ position:absolute;
+ top:12px; right:18px;
+ font-size:22px;
+ font-weight:bold;
  cursor:pointer;
+ color:#888;
  transition:0.3s;
 }
-.close-btn:hover{background:#6fa1ff;transform:scale(1.05);}
+.close-btn:hover{
+ color:#1e56a0;
+ transform:scale(1.2);
+}
 
-/* Balloons */
+/* Balloon styles */
 .balloons{
- position:absolute;width:100%;height:100%;
- top:0;left:0;pointer-events:none;overflow:hidden;
+ position:absolute; width:100%; height:100%;
+ top:0; left:0; pointer-events:none; overflow:hidden;
 }
 .balloon{
- position:absolute;bottom:-100px;width:20px;height:30px;border-radius:50%;
- opacity:0.8;animation:float 6s ease-in infinite;
+ position:absolute; bottom:-100px;
+ width:20px; height:30px; border-radius:50%;
+ opacity:0.8;
+ animation:float 6s ease-in infinite;
 }
 .balloon.red{background:#ff4b5c; left:10%;}
 .balloon.blue{background:#1e56a0; left:25%; animation-delay:1s;}
@@ -195,19 +317,33 @@ nav a:hover::after{width:100%}
 .balloon.yellow{background:#ffcc00; left:55%; animation-delay:3s;}
 .balloon.purple{background:#9b59b6; left:70%; animation-delay:1.5s;}
 @keyframes float{
- 0%{transform:translateY(0) rotate(0deg);}
- 50%{transform:translateY(-150px) rotate(15deg);}
- 100%{transform:translateY(-300px) rotate(-10deg);}
+  0%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-150px) rotate(15deg);}
+  100%{transform:translateY(-300px) rotate(-10deg);}
 }
-#confettiCanvas{
- position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2;
-}
-@keyframes popUp{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
 
-/* Footer */
+/* Confetti */
+#confettiCanvas{
+ position:absolute;
+ top:0;left:0;
+ width:100%; height:100%;
+ pointer-events:none;
+ z-index:2;
+}
+
+@keyframes popUp{
+ from{transform:scale(.7);opacity:0}
+ to{transform:scale(1);opacity:1}
+}
+
+/* ================= Footer ================= */
 footer{
  background:#102c54;color:#fff;text-align:center;
- padding:22px;margin-top:50px
+ padding:22px;margin-top:90px
+}
+
+@media(max-width:900px){
+ .new-book{grid-template-columns:1fr}
 }
 
 /* Responsive */
@@ -217,17 +353,42 @@ footer{
  .gallery-scroll img{width:200px;height:150px;}
  .hero h1{font-size:28px;} .hero p{font-size:16px;}
 }
+
+
 </style>
 </head>
-<body>
 
-<!-- Banner -->
+<body>
+<!-- Hero Banner -->
 <div class="hero">
-  <div>
-    <h1>Dr. Dhirendra Khare</h1>
-    <p>Dean Faculty, JNKVV, Jabalpur</p>
+  <div class="hero-content">
+    <!-- Left: Photo -->
+    <div class="hero-photo">
+      <img src="https://drive.google.com/file/d/1tJ6TU6bo3r3ZCVzGMATt_kv8QiugRH6n/view?usp=sharing">
+    </div>
+
+    <!-- Right: Info & Links -->
+    <div class="hero-info">
+      <h1>Dr. Dhirendra Khare</h1>
+      <p>Distinguished Academician |
+Author | Dean, Faculty of Agriculture,  
+Jawaharlal Nehru Krishi Vishwa Vidyalaya, Jabalpur (M.P.) </p>
+      
+      <div class="hero-links">
+        <a href="https://www.linkedin.com/in/dr-dhirendra-khare" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://www.researchgate.net/profile/Dhirendra_Khare" target="_blank">
+          <i class="fab fa-researchgate"></i> ResearchGate
+        </a>
+        <a href="https://scholar.google.com/citations?user=XXXXXX" target="_blank">
+          <i class="https://scholar.google.com/citations?user=TSMzpYcAAAAJ&hl=en"></i> Google Scholar
+        </a>
+      </div>
+    </div>
   </div>
 </div>
+
 
 <!-- Menu -->
 <nav>
@@ -244,7 +405,7 @@ footer{
 <!-- New Book -->
 <section class="new-book">
  <div>
-  <img src="new-book.jpg" alt="New Book">
+  <img src="new-book.jpg">
  </div>
  <div>
   <span class="badge">New Book Launch</span>
@@ -256,38 +417,52 @@ footer{
  </div>
 </section>
 
+<!-- Achievement Counters -->
+<h2 style="margin-top:70px;text-align:center">Research Achievements</h2>
+<div class="stats">
+  <div class="stat"><h2 class="counter" data-target="120">07</h2><p> Crop Varieties Developed</p></div>
+  <div class="stat"><h2 class="counter" data-target="45">10</h2><p>Crops Characterized</p></div>
+  <div class="stat"><h2 class="counter" data-target="30">4</h2><p>Patents</p></div>
+</div>
+<!-- Achievement Counters -->
+<h2 style="margin-top:70px;text-align:center">Achievements</h2>
+<div class="stats">
+  <div class="stat"><h2 class="counter" data-target="120">94</h2><p>Research Papers</p></div>
+  <div class="stat"><h2 class="counter" data-target="45">19</h2><p>Books Published</p></div>
+  <div class="stat"><h2 class="counter" data-target="30">14</h2><p>Technical Manuals</p></div>
+</div>
 <!-- Book Slider -->
 <h2 style="margin-top:70px;text-align:center">Published Books</h2>
-<div class="slider" id="bookSlider">
- <div class="arrow left" onclick="slide('bookSlider',-1)">❮</div>
- <div class="arrow right" onclick="slide('bookSlider',1)">❯</div>
- <div class="slider-track">
-  <div class="slider-item"><img src="book1.jpg" alt=""><p>Seed Technology</p></div>
-  <div class="slider-item"><img src="book2.jpg" alt=""><p>Plant Breeding</p></div>
-  <div class="slider-item"><img src="book3.jpg" alt=""><p>Hybrid Crops</p></div>
-  <div class="slider-item"><img src="book4.jpg" alt=""><p>Molecular Seeds</p></div>
+<div class="slider">
+ <div class="arrow left" onclick="slide('bookTrack',-1)">❮</div>
+ <div class="arrow right" onclick="slide('bookTrack',1)">❯</div>
+ <div class="slider-track" id="bookTrack">
+  <div class="slider-item"><img src="book1.jpg"><p>Seed Technology</p></div>
+  <div class="slider-item"><img src="book2.jpg"><p>Plant Breeding</p></div>
+  <div class="slider-item"><img src="book3.jpg"><p>Hybrid Crops</p></div>
+  <div class="slider-item"><img src="book4.jpg"><p>Molecular Seeds</p></div>
  </div>
 </div>
 
 <!-- Award Slider -->
 <h2 style="margin-top:70px;text-align:center">Awards & Honours</h2>
-<div class="slider" id="awardSlider">
- <div class="arrow left" onclick="slide('awardSlider',-1)">❮</div>
- <div class="arrow right" onclick="slide('awardSlider',1)">❯</div>
- <div class="slider-track">
-  <div class="slider-item"><img src="award1.jpg" alt=""></div>
-  <div class="slider-item"><img src="award2.jpg" alt=""></div>
-  <div class="slider-item"><img src="award3.jpg" alt=""></div>
+<div class="slider">
+ <div class="arrow left" onclick="slide('awardTrack',-1)">❮</div>
+ <div class="arrow right" onclick="slide('awardTrack',1)">❯</div>
+ <div class="slider-track" id="awardTrack">
+  <div class="slider-item"><img src="award1.jpg"></div>
+  <div class="slider-item"><img src="award2.jpg"></div>
+  <div class="slider-item"><img src="award3.jpg"></div>
  </div>
 </div>
 
 <!-- Gallery -->
 <h2 style="margin-top:70px;text-align:center">Photo Gallery</h2>
 <div class="gallery-scroll">
- <img src="g1.jpg" alt="">
- <img src="g2.jpg" alt="">
- <img src="g3.jpg" alt="">
- <img src="g4.jpg" alt="">
+ <img src="g1.jpg">
+ <img src="g2.jpg">
+ <img src="g3.jpg">
+ <img src="g4.jpg">
 </div>
 
 </div>
@@ -297,8 +472,9 @@ footer{
  <div class="birthday-box">
   <h2>🎉 Happy Birthday 🎂</h2>
   <h3>Dr. Dhirendra Khare</h3>
-  <p>Wishing you continued success, happiness, and good health.</p>
-  <button class="close-btn" onclick="closeBirthday()">Close</button>
+  <p>Wishing you joy, health, and continued success in all your endeavors</p>
+    <button onclick="closeBirthday()">Close</button>
+  </div>
   <div class="balloons">
     <div class="balloon red"></div>
     <div class="balloon blue"></div>
@@ -320,35 +496,75 @@ footer{
 </footer>
 
 <script>
-// Slider function
-function slide(sliderId,dir){
- const slider=document.getElementById(sliderId).querySelector('.slider-track');
- const itemWidth=slider.querySelector('.slider-item').offsetWidth + 20;
- slider.scrollBy({left:dir*itemWidth, behavior:'smooth'});
+/* Slider Arrows */
+let pos={};
+function slide(id,dir){
+ if(!pos[id]) pos[id]=0;
+ pos[id]+=dir*250;
+ document.getElementById(id).style.transform=`translateX(${pos[id]}px)`;
 }
 
-// Lightbox
+/* Lightbox */
 const lightbox=document.getElementById('lightbox');
 const lightboxImg=document.getElementById('lightboxImg');
 document.querySelectorAll('.slider-item img, .gallery-scroll img').forEach(img=>{
- img.onclick=()=>{lightboxImg.src=img.src;lightbox.classList.add('show');}
+ img.onclick=()=>{
+  lightboxImg.src=img.src;
+  lightbox.classList.add('show');
+ }
 });
 lightbox.onclick=()=>lightbox.classList.remove('show');
 
-// Birthday popup
-window.onload=function(){document.getElementById('birthdayPopup').style.display='flex';}
-function closeBirthday(){document.getElementById('birthdayPopup').style.display='none';}
+/* Birthday Popup */
+window.onload=function(){
+ document.getElementById('birthdayPopup').style.display='flex';
+}
+function closeBirthday(){
+ document.getElementById('birthdayPopup').style.display='none';
+}
 
-// Confetti
+/* ================= Confetti ================= */
 const canvas = document.getElementById('confettiCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
-const confettiCount=100;const confetti=[];
-for(let i=0;i<confettiCount;i++){confetti.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*6+2,d:Math.random()*confettiCount,color:`hsl(${Math.random()*360},70%,60%)`,tilt:Math.random()*10-10});}
+
+const confettiCount = 100;
+const confetti = [];
+for(let i=0;i<confettiCount;i++){
+  confetti.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*6+2,
+    d: Math.random()*confettiCount,
+    color: `hsl(${Math.random()*360},70%,60%)`,
+    tilt: Math.random()*10-10
+  });
+}
+
+function drawConfetti(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  confetti.forEach(c=>{
+    ctx.beginPath();
+    ctx.lineWidth = c.r;
+    ctx.strokeStyle = c.color;
+    ctx.moveTo(c.x + c.tilt, c.y);
+    ctx.lineTo(c.x, c.y + c.tilt + c.r);
+    ctx.stroke();
+  });
+  updateConfetti();
+}
+
 let angle=0;
-function drawConfetti(){ctx.clearRect(0,0,canvas.width,canvas.height);confetti.forEach(c=>{ctx.beginPath();ctx.lineWidth=c.r;ctx.strokeStyle=c.color;ctx.moveTo(c.x+c.tilt,c.y);ctx.lineTo(c.x,c.y+c.tilt+c.r);ctx.stroke();});updateConfetti();}
-function updateConfetti(){angle+=0.01;confetti.forEach(c=>{c.y+=(Math.cos(angle+c.d)+1+c.r/2);c.x+=Math.sin(angle);if(c.y>canvas.height){c.y=0;c.x=Math.random()*canvas.width;}});requestAnimationFrame(drawConfetti);}
+function updateConfetti(){
+  angle +=0.01;
+  confetti.forEach(c=>{
+    c.y += (Math.cos(angle + c.d) + 1 + c.r/2);
+    c.x += Math.sin(angle);
+    if(c.y>canvas.height){ c.y=0; c.x=Math.random()*canvas.width;}
+  });
+  requestAnimationFrame(drawConfetti);
+}
 drawConfetti();
 </script>
 
