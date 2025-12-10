@@ -10,10 +10,11 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#f5f7fd;color:#333}
 
-/* ================= Banner ================= */
-/* ================= Professional Banner ================= /* ================= Professional Banner with Photo & Links ================= */
-.hero{
-  height:30vh;
+/* ================= Banner ===
+
+/* ================= Header Banner ================= */
+.hero {
+  height:35vh;
   background:
     linear-gradient(rgba(10,30,70,0.85), rgba(10,30,70,0.85)),
     url('banner-bg.jpg');
@@ -22,83 +23,158 @@ body{background:#f5f7fd;color:#333}
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:0 50px;
+  padding:0 30px;
   position:relative;
   color:#fff;
 }
 
-.hero::after{
+.hero::after {
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(135deg, rgba(30,86,160,.7), rgba(10,30,70,.9));
 }
 
-.hero-content{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  width:100%;
-  max-width:1200px;
-  position:relative;
-  z-index:2;
-  gap:50px;
+.hero-content {
+  display: flex;
+  align-items: center;      /* Vertically center items */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+  gap: 50px;
 }
 
-.hero-photo{
-  flex:1;
-}<!-- Hero Banner -->
-<div class="hero">
-  <div class="hero-content" style="justify-content: space-between;">
-    
-    <!-- Left: Name & Photo -->
-    <div style="display:flex; align-items:center; gap:20px;">
-      <div class="hero-photo">
-        <img src="dr-khare.png" alt="Dr. Dhirendra Khare">
-      </div>
-      <div style="color:#fff;">
-        <h1 style="font-size:48px; font-weight:700;">Dr. Dhirendra Khare</h1>
-        <p style="font-size:18px; opacity:0.9;">Distinguished Academician | Author | Dean Faculty, JNKVV, Jabalpur</p>
-      </div>
-    </div>
+.hero-left {
+  display: flex;
+  flex-direction: row;      /* Photo left, text right */
+  align-items: center;      /* Vertically center text with photo */
+  gap: 25px;
+  flex: 1;
+  text-align: left;         /* Text aligns to the left */
+}
 
-    <!-- Right: Links -->
-    <div class="hero-links" style="justify-content:flex-end;">
-      <a href="https://www.linkedin.com/in/dr-dhirendra-khare" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://www.researchgate.net/profile/Dhirendra_Khare" target="_blank">
-        <i class="fab fa-researchgate"></i> ResearchGate
-      </a>
-      <a href="https://scholar.google.com/citations?user=XXXXXX" target="_blank">
-        <i class="fas fa-graduation-cap"></i> Google Scholar
-      </a>
-    </div>
-    
-  </div>
-</div>
+/* Keep circular photo */
+.hero-photo img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #1e56a0;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
 
-.hero-links a{
+
+
+.hero-photo img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #1e56a0;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.hero-text h1 {
+  font-size:48px;
+  margin:0;
+}
+
+.hero-text p {
+  font-size:18px;
+  opacity:0.9;
+  line-height:1.4;
+  margin:0;
+}
+
+.hero-links {
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:flex-end;
+}
+
+.hero-links a {
   display:flex;
   align-items:center;
-  gap:8px; /* space between icon and text */
+  gap:8px;
   background:#1e56a0;
-  padding:12px 22px;
+  padding:10px 20px;
   border-radius:10px;
   color:#fff;
   font-weight:600;
   text-decoration:none;
-  transition:.3s;
+  transition:0.3s;
 }
 
-.hero-links a:hover{
+.hero-links a:hover {
   background:#6fa1ff;
   transform:translateY(-2px);
 }
 
-.hero-links i{
+.hero-links i {
   font-size:18px;
 }
+
+/* ===== Responsive ===== */
+
+
+/* Responsive tweaks */
+@media (max-width:900px) {
+  .hero-left {
+    flex-direction: row;     /* Keep photo left, text right */
+    align-items: center;     /* Vertical alignment */
+    gap: 15px;
+    text-align: left;
+  }
+  .hero-text h1 { font-size: 36px; }
+  .hero-text p { font-size: 16px; }
+  .hero-photo img { width: 140px; height: 140px; }
+}
+@media (max-width:600px) {
+  .hero-left {
+    flex-direction: column;  /* Stack on very small screens */
+    align-items: center;
+    text-align: center;
+  }
+  .hero-text h1 { font-size: 28px; }
+  .hero-text p { font-size: 14px; }
+}
+@media (max-width:900px) {
+  .hero-content {
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+  }
+  .hero-left {
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    text-align:center;
+  }
+  .hero-links {
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .hero-links a {
+    font-size:14px;
+    padding:8px 15px;
+  }
+  .hero-text h1 { font-size:36px; }
+  .hero-text p { font-size:16px; }
+}
+
+@media (max-width:600px) {
+  .hero-photo img { width:140px; height:140px; }
+  .hero-text h1 { font-size:28px; }
+  .hero-text p { font-size:14px; }
+  .hero { height:40vh; }
+}
+
 
 /* ================= Menu ================= */
 nav{
@@ -359,35 +435,30 @@ footer{
 </head>
 
 <body>
-<!-- Hero Banner -->
-<div class="hero">
-  <div class="hero-content">
-    <!-- Left: Photo -->
-    <div class="hero-photo">
-      <img src="https://drive.google.com/file/d/1tJ6TU6bo3r3ZCVzGMATt_kv8QiugRH6n/view?usp=sharing">
-    </div>
 
-    <!-- Right: Info & Links -->
-    <div class="hero-info">
-      <h1>Dr. Dhirendra Khare</h1>
-      <p>Distinguished Academician |
-Author | Dean, Faculty of Agriculture,  
-Jawaharlal Nehru Krishi Vishwa Vidyalaya, Jabalpur (M.P.) </p>
-      
+<!-- Header Banner -->
+<header>
+  <div class="hero">
+    <div class="hero-content">
+      <!-- Photo & Info -->
+      <div class="hero-left">
+        <div class="hero-photo">
+          <img src="https://drive.google.com/uc?export=view&id=1olCpAVArSce27GKOECYPNRWwJvXHUmun" alt="Dr. Dhirendra Khare">
+        </div>
+        <div class="hero-text">
+          <h1>Dr. Dhirendra Khare</h1>
+          <p>Distinguished Academician | Author<br>Dean, Faculty of Agriculture, JNKVV, Jabalpur</p>
+        </div>
+      </div>
+
+      <!-- Links -->
       <div class="hero-links">
-        <a href="https://www.linkedin.com/in/dr-dhirendra-khare" target="_blank">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://www.researchgate.net/profile/Dhirendra_Khare" target="_blank">
-          <i class="fab fa-researchgate"></i> ResearchGate
-        </a>
-        <a href="https://scholar.google.com/citations?user=XXXXXX" target="_blank">
-          <i class="https://scholar.google.com/citations?user=TSMzpYcAAAAJ&hl=en"></i> Google Scholar
-        </a>
+        <a href="https://www.linkedin.com/in/dhirendra-khare-a0a2231a/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.researchgate.net/profile/Dhirendra-Khare"><i class="fab fa-researchgate"></i> ResearchGate</a>
+        <a href="https://scholar.google.com/citations?user=TSMzpYcAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
       </div>
     </div>
   </div>
-</div>
 
 
 <!-- Menu -->
@@ -400,7 +471,19 @@ Jawaharlal Nehru Krishi Vishwa Vidyalaya, Jabalpur (M.P.) </p>
  <a href="#">Gallery</a>
 </nav>
 
+
 <div class="container">
+
+<!-- Professional Vision -->
+<section style="margin-top:5px; text-align:left; justify; max-width:900px; margin-left:auto; margin-right:auto;">
+  <h2 style="color:#1e56a0; margin-bottom:20px;">Professional Vision</h2>
+
+  <p style="font-size:17px; line-height:1.8; color:#444;">
+    I have dedicated my professional life to advancing agricultural education, research excellence, and institutional leadership.
+    My work spans crop improvement, seed quality enhancement, and sustainable farming systems, with a strong commitment to
+    mentoring future agricultural scientists and strengthening academic governance.
+  </p>
+</section>
 
 <!-- New Book -->
 <section class="new-book">
