@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Contributions to Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8faf8;
+      color: #333;
+    }
+
+    .research-section {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 50px 60px;
+      background: linear-gradient(145deg, #ffffff, #f3f8f3);
+      border-radius: 16px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+
+    .research-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.4em;
+      color: #004d00;
+      margin-bottom: 35px;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      text-align: justify;
+      font-size: 1.08em;
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="research-section" id="researchSection">
+
+    <h1>My Contributions to Research</h1>
+
+    <p>
+      My research journey has been shaped by a deep commitment to advancing agricultural science and creating practical,
+      field-oriented solutions that strengthen farming systems. Through my work, I have continually sought to bridge
+      the gap between scientific discovery and real-world impact.
+    </p>
+
+    <p>
+      I had the privilege of establishing and leading the Seed Technology Centre and Referral Seed Testing Laboratories
+      under ICAR-sponsored projects, contributing to the development of strong institutional frameworks, modern
+      research infrastructure, and reliable seed quality systems.
+    </p>
+
+    <p>
+      Capacity building has been a central pillar of my professional work. I designed and delivered specialised
+      training programmes for professionals engaged in seed production, certification, and trade across India, helping
+      to raise technical standards and professional excellence within the agricultural sector.
+    </p>
+
+    <p>
+      Mentorship has always remained close to my heart. Guiding undergraduate, postgraduate, and doctoral scholars has
+      allowed me to nurture curiosity, scientific discipline and innovative thinking. My enduring goal has been to
+      inspire young researchers to contribute meaningfully to the future of agriculture.
+    </p>
+
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    observer.observe(document.getElementById('researchSection'));
+  </script>
+
+</body>
+</html>
