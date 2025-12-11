@@ -631,6 +631,49 @@ footer{
  .gallery-scroll img{width:200px;height:150px;}
  .hero h1{font-size:28px;} .hero p{font-size:16px;}
 }
+/* Mobile Menu Icon */
+.mobile-menu-icon {
+  display: none;
+  font-size: 30px;
+  padding: 12px 20px;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+}
+
+/* Mobile Mode */
+@media (max-width: 750px) {
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 15px;
+    animation: menuSlide .35s ease;
+  }
+
+  nav.show-menu {
+    display: flex;
+  }
+
+  @keyframes menuSlide {
+    from {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
 
 
 </style>
@@ -664,7 +707,10 @@ footer{
 
 
 <!-- Menu -->
-<nav>
+<div class="mobile-menu-icon" onclick="toggleMenu()">
+  ☰
+</div>
+<nav id="mainMenu">
   <a href="index.html">Home</a>
   <a href="About.html" target="_blank">Professional Overview</a>
   <a href="books.html" target="_blank">Books & Publications</a>
